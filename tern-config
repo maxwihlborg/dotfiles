@@ -1,0 +1,8 @@
+{
+    "libs": [ "browser", "ecma6", "jquery" ],
+    "plugins": {
+        "doc_comment": {},
+        "es_modules": {},
+        "webpack": {}
+    }
+}
