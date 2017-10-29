@@ -1,0 +1,13 @@
+[core]
+  excludesfile = /Users/maxwih/.gitignore_global
+  editor = nvim
+[user]
+  name =
+  email =
+[push]
+  default = simple
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
