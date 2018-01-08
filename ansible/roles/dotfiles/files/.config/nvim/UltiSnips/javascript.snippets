@@ -1,0 +1,105 @@
+global !p
+fn_base = fn.split(os.extsep)[0];
+lower_first = lambda s: s[:1].lower() + s[1:] if s else ''
+endglobal
+
+# -------------- r (react)
+snippet rc "React Component"
+import React, { Component } from 'react'
+
+
+export default class $1 extends Component {
+
+	render() {
+		return (
+			${2:<div>Hello world</div>}
+		)
+	}
+}
+
+endsnippet
+
+snippet rrc "React Redux Component"
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+
+const mapStateToPros = (state) => {}
+
+class $1 extends Component {
+
+	render() {
+		return (
+			${2:<div>Hello world</div>}
+		)
+	}
+}
+
+export default connect(mapStateToPros)($1)
+
+endsnippet
+
+# --------- rcf react class function
+snippet rcf "React Component as pure function"
+import React from 'react'
+
+export default function $1(props) {
+	return (
+		<div>$1</div>
+	)
+}
+
+endsnippet
+
+# --------- rc export
+snippet rce "React Component export"
+import $1 from './$1'
+
+
+export default $1
+
+endsnippet
+
+# --------- rc export
+snippet rci "React Component import"
+import $1 from './$1'
+endsnippet
+
+# --------- rc export
+snippet rcd "React Component default export"
+export { default as $1 } from './$1'
+endsnippet
+
+# --------- rpt
+snippet rptr "PropTypes..isRequired"
+$1: T.$2.isRequired,
+endsnippet
+
+snippet rptar "PropTypes.array.isRequired"
+$1: T.array.isRequired,
+endsnippet
+
+snippet rptbr "PropTypes.bool.isRequired"
+$1: T.bool.isRequired,
+endsnippet
+
+snippet rptnr "PropTypes.number.isRequired"
+$1: T.number.isRequired,
+endsnippet
+
+snippet rptfr "PropTypes.func.isRequired"
+$1: T.func.isRequired,
+endsnippet
+
+snippet rptor "PropTypes.object.isRequired"
+$1: T.object.isRequired,
+endsnippet
+
+snippet rptsr "PropTypes.string.isRequired"
+$1: T.string.isRequired,
+endsnippet
+
+snippet rpter "PropTypes.element.isRequired"
+$1: T.element.isRequired,
+endsnippet
+

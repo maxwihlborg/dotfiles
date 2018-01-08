@@ -1,0 +1,34 @@
+# vim: filetype=muttrc
+
+# Accounts
+# source ~/.config/mutt/account.com.gmail.max.wihlborg
+
+# Theme
+source ~/.config/mutt/themes/colors256-dark
+
+# Sidebar
+# set sidebar_visible
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+
+# Notifications (does not work in tmux session/alactritty)
+# set new_mail_command="reattach-to-user-namespace terminal-notifier -title '%v' -subtitle 'New Mail in %f' -message '%n new messages, %u unread.' -activate 'com.apple.Terminal' -iconPath ~/.config/mutt/mutt.ico -sound 'Pop'"
+
+set mailcap_path=~/.config/mutt/mailcap
+set header_cache=~/.config/mutt/cache
+
+# Sorting
+set sort=threads
+set sort_re
+set sort_aux=reverse-date-sent
+set status_on_top
+
+set query_command="lbdbq '%s'"
+
+# Vim bindings
+#bind pager "G" bottom
+#bind index "G" bottom
+#bind browser "G" bottom
+
+# Macros
+macro pager ,b <pipe-entry>'urlview'<enter> 'Follow links with urlview'

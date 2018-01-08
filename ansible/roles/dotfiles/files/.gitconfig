@@ -1,0 +1,16 @@
+[core]
+  excludesfile = /Users/maxwih/.gitignore_global
+  editor = nvim
+[user]
+  name = Max Wihlborg
+  email = max.wihlborg@ispy.se
+[push]
+  default = simple
+[init]
+  templatedir = /Users/maxwih/.git_template
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit --all

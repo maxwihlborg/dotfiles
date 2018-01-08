@@ -1,0 +1,49 @@
+# vim: filetype=muttrc
+#
+### Colors ###
+# General colors
+color hdrdefault color110 color234
+color quoted     color244 color234
+color signature  color150 color234
+color attachment color110 color234
+color message    color252 color234
+color error      color15  color1
+color indicator  color252 color237
+color status     color15  color239
+color tree       color174 color234
+color normal     color252 color234
+color search     color0   color149
+color tilde      color247 color234
+color index      color180 color234 "~F"    # marked
+color index      color150 color234 "~N|~O" # unread
+color index      color15  color1   "~D"    # deleted
+color index      color255 color96  "~T"    # toggled
+color sidebar_new color150 color234
+# Special headers
+color header     color225 color234 '^Subject:'
+# Special chars
+color body       color244 color234 '\\[0-9]{3}'
+color body       color244 color234 '&[#a-z0-9]+;'
+# URLs
+color body       color174 color234 '(\w+://|www\.)[-.a-z0-9]+\.[a-z]{2,}[A-Za-z0-9;:.~_/%@#?+&=-]*'
+color body       color229 color234 '[a-z0-9.+-]+@[a-z0-9.-]+\.[a-z]{2,4}'
+# Lines
+color body       color150 color234 '[-=+#_*~]{3,}.*'
+color body       color150 color234 '^[#~].*'
+color body       color150 color234 '^[=-].*[=-]$'
+# Link-Tags
+color body       color181 color234 '\[([0-9]+|IMG)\]'
+# Attribution lines
+color body       color248 color234 '(^|[^[:alnum:]])([Oo]n)? .*wrote:$'
+color body       color248 color234 '(^|[^[:alnum:]])([Oo]n)? .* was blubbering:$'
+color body       color248 color234 '(^|[^[:alnum:]])([Oo]n)? .* blubbered:$'
+color body       color248 color234 '(^|[^[:alnum:]])[0-9]{4}/[0-9]{1,2}/[0-9]{1,2} .*:$'
+color body       color248 color234 '(^|[^[:alnum:]])Am.*\+[0-9]{4}$'
+color body       color248 color234 '(^|[^[:alnum:]])schrieb .* <.*@.*>:$'
+color body       color248 color234 '(^|[^[:alnum:]])\* .* \[[0-9 -:+]*\]:$'
+# *bold*
+color body       color229 color234 '(^|\W)[\*]\w.*\w[\*]($|\W)'
+# _underlined_
+color body       color229 color234 '(^|\W)_\w[[:alpha:]]*\w_($|\W)'
+# /italics/
+color body       color229 color234 '(^|\W)/\w[^/]*\w/($|\W)'
