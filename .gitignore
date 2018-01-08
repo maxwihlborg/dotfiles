@@ -1,0 +1,2 @@
+roles/dotfiles/files/.config/nvim/dein
+roles/dotfiles/files/.config/fish/fishd.*

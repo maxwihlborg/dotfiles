@@ -7,7 +7,7 @@ set red (set_color red)
 set gray (set_color -o black)
 
 # Paths
-set PATH /usr/local/sbin $HOME/.cargo/bin $HOME/.composer/vendor/bin $HOME/gocode/bin $HOME/bin $HOME/.fastlane/bin $PATH
+set PATH /usr/local/sbin $HOME/.cargo/bin $HOME/.composer/vendor/bin $PATH
 set -x GOPATH $HOME/gocode
 set -x ANDROID_HOME $HOME/Library/Android/sdk
 set -x XDG_CONFIG_HOME $HOME/.config
@@ -37,10 +37,6 @@ set -x LC_ALL en_US.UTF-8
 # Overrides
 set fish_color_cwd yellow
 set fish_greeting
-
-# NVM
-set -x NVM_DIR ~/.nvm
-source ~/.config/fish/nvm-wrapper/nvm.fish
 
 # Fish git prompt
 set __fish_git_prompt_show_informative_status 'yes'
