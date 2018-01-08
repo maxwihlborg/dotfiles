@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Install homebrew
+if ! [ -x "$(command -v brew)" ]; then
+  echo "Installing homebrew..."
+  if ! /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; then
+    echo "Could not install homebrew"
+    exit 1
+  fi
+fi
+
+# Install ansible
+if ! [ -x "$(command -v ansible)" ]; then
+  echo "Installing ansible..."
+  if ! brew install python; then
+    echo "Could not install python"
+    exit 1
+  fi
+  if ! pip2 install ansible; then
+    echo "Could not install ansible"
+    exit 1
+  fi
+fi
+
+# Gracefully copied from https://github.com/wincent/wincent/blob/master/install
+usage() {
+  echo "./install [options] [roles...]"
+  echo "Supported options:"
+  echo "  -h"
+  echo "Other options (passed through to Ansible):"
+  echo "  --check"
+  echo "  --step"
+  echo "  --start-at-task='role | task'"
+  echo "Supported roles:"
+  for ROLE in $(ls roles); do
+    echo "  $ROLE"
+    echo "    $(cat roles/$ROLE/description)"
+  done
+}
+
+EXTRA_ARGS=()
+while [ $# -gt 0 ]; do
+  if [ "$1" = '--help' -o "$1" = '-h' -o "$1" = 'help' ]; then
+    usage
+    exit
+  elif [ -n "$1" ]; then
+    if [ -d "roles/$1" ]; then
+      if [ -z "$ROLES" ]; then
+        ROLES="--tags $1"
+      else
+        ROLES="$ROLES,$1"
+      fi
+    elif [[ "$1" == --* ]]; then
+      EXTRA_ARGS+=("$1")
+    else
+      echo "Unrecognized argument(s): $*"
+      usage
+      exit 1
+    fi
+  fi
+  shift
+done
+
+ansible-playbook --ask-become-pass -i inventory ${ROLES} "${EXTRA_ARGS[@]}" darwin.yml

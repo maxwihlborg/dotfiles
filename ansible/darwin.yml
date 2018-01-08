@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  roles:
+    - { role: alacritty, tags: alacritty }
+    - { role: dotfiles, tags: dotfiles }
+    - { role: homebrew, tags: homebrew }
+    - { role: fish, tags: fish }
+    - { role: neovim, tags: vim }
+    - { role: neomutt, tags: mutt }

@@ -1,0 +1,18 @@
+---
+dotfile_files:
+  - .config/alacritty
+  - .config/fish
+  - .config/mopidy
+  - .config/mutt
+  - .config/nvim
+  - .config/vifm
+  - .hammerspoon
+  - .gitconfig
+  - .gitignore_global
+  - .lbdbrc
+  - .npmrc
+  - .tern-config
+  - .tmux.conf
+
+git_user_email: max.wihlborg@gmail.com
+git_user_name: Max Wihlborg

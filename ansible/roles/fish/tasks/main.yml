@@ -1,0 +1,8 @@
+---
+- name: shell | add /usr/local/bin/fish to /etc/shells
+  lineinfile: >
+    dest=/etc/shells
+    group=wheel
+    line=/usr/local/bin/fish
+    owner=root
+  become: !!bool yes
