@@ -3,7 +3,7 @@
   editor = nvim
 [user]
   name = Max Wihlborg
-  email = max.wihlborg@ispy.se
+  email = max.wihlborg@barnebys.com
 [push]
   default = simple
 [init]
