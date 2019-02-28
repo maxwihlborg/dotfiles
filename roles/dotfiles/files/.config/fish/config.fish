@@ -83,11 +83,11 @@ function .3
 end
 
 function mx
-  env TERM=xterm-256color tmux $argv
+  env TERM=screen-256color tmux $argv
 end
 
 function mux
-  env TERM=xterm-256color tmuxinator $argv
+  env TERM=screen-256color tmuxinator $argv
 end
 
 function ne
