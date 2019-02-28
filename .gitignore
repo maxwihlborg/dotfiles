@@ -1,2 +1,3 @@
 roles/dotfiles/files/.config/nvim/dein
 roles/dotfiles/files/.config/fish/fishd.*
+roles/dotfiles/files/.config/fish/fish_variables

@@ -17,7 +17,6 @@ call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 call dein#add('ctrlpvim/ctrlp.vim')
 
 call dein#add('kien/rainbow_parentheses.vim')
-call dein#add('terryma/vim-multiple-cursors')
 
 call dein#add('pangloss/vim-javascript', { 'merged': 0 })
 call dein#add('othree/yajs.vim', { 'merged': 0 })
@@ -27,8 +26,6 @@ call dein#add('scrooloose/nerdcommenter')
 call dein#add('vim-airline/vim-airline')
 call dein#add('ryanoasis/vim-devicons')
 call dein#add('scrooloose/nerdtree', { 'merged': 0 })
-call dein#add('itspriddle/vim-marked')
-call dein#add('majutsushi/tagbar')
 call dein#add('SirVer/ultisnips')
 
 call dein#add('mileszs/ack.vim')
@@ -43,7 +40,6 @@ call dein#add('sbdchd/neoformat')
 call dein#add('christoomey/vim-tmux-navigator')
 call dein#add('easymotion/vim-easymotion')
 call dein#add('junegunn/vim-easy-align')
-call dein#add('vimwiki/vimwiki')
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-fugitive')
 call dein#add('tpope/vim-vinegar')
@@ -51,7 +47,6 @@ call dein#add('airblade/vim-gitgutter')
 call dein#add('mattn/emmet-vim')
 call dein#add('mxw/vim-jsx')
 
-call dein#add('tyrannicaltoucan/vim-quantum')
 call dein#add('mhartington/oceanic-next')
 
 call dein#add('whatyouhide/vim-tmux-syntax')
@@ -124,18 +119,7 @@ nno <silent> <bar> :m .+1<cr>==
 nno <silent> ! :m .-2<cr>==
 
 " Tab navigation
-nno <silent> <leader>1 1gt
-nno <silent> <leader>2 2gt
-nno <silent> <leader>3 3gt
-nno <silent> <leader>4 4gt
-nno <silent> <leader>5 5gt
-nno <silent> <leader>6 6gt
-nno <silent> <leader>7 7gt
-nno <silent> <leader>8 8gt
-nno <silent> <leader>9 9gt
 nno <silent> <leader>t :tabe<cr>
-" ino <silent> <C-t> <Esc>:tabe<cr>
-" nno <silent> <C-t> :tabe<cr>
 nno <silent> H :tabp<cr>
 nno <silent> L :tabn<cr>
 
@@ -196,9 +180,6 @@ let g:deoplete#sources#ternjs#types = 1
 " tern
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
-let g:tagbar_type_javascript = {
-    \ 'ctagsbin' : '/usr/local/bin/jsctags'
-\ }
 
 " airline
 let g:airline#extensions#tabline#show_buffers = 0
