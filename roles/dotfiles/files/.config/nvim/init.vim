@@ -85,7 +85,7 @@ nno <silent> <leader>Q :q!<cr>
 nno <silent> <leader>f :Neoformat<cr>
 nno <silent> <leader>b :Gblame<cr>
 nno <silent> <leader>c :Gcommit<cr>
-nno <silent> <leader>s :Gstatus<cr>
+nno <silent> <leader>s :aboveleft 14 Gstatus<cr>
 nno <silent> <leader>d :Gdiff<cr>
 
 " Movement

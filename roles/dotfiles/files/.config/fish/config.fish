@@ -12,6 +12,9 @@ set -x GOPATH $HOME/gocode
 set -x ANDROID_HOME $HOME/Library/Android/sdk
 set -x XDG_CONFIG_HOME $HOME/.config
 
+set -g fish_user_paths "/usr/local/opt/node@10/bin" $fish_user_paths
+set -gx nvm_prefix /usr/local/Cellar/nvm/0.34.0
+
 # Docker
 # set -gx DOCKER_TLS_VERIFY "1";
 # set -gx DOCKER_HOST "tcp://192.168.99.100:2376";
@@ -83,11 +86,11 @@ function .3
 end
 
 function mx
-  env TERM=screen-256color tmux $argv
+  env TERM=xterm-256color tmux $argv
 end
 
 function mux
-  env TERM=screen-256color tmuxinator $argv
+  env TERM=xterm-256color tmuxinator $argv
 end
 
 function ne
