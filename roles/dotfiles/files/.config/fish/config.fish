@@ -34,8 +34,10 @@ end
 set -x EDITOR nvim
 set -x VISUAL $EDITOR
 
+# Environment variables
 set -x LANG en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
+set -x FZF_DEFAULT_COMMAND 'fd --type f'
 
 # Overrides
 set fish_color_cwd yellow

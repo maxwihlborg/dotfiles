@@ -1,13 +1,15 @@
 snippet rc "React Class Component"
 import React from "react";
 
-export default class $1 extends React.Component {
+class $1 extends React.Component {
 	render() {
 		return (
 			${2:<div>Hello world</div>}
 		);
 	}
 }
+
+export default $1;
 endsnippet
 
 snippet rrc "React Redux Component"
@@ -48,11 +50,13 @@ endsnippet
 snippet rcf "React Pure Function Component"
 import React from "react";
 
-export default function $1(props) {
+const $1 = (props) => {
 	return (
 		<div>$1</div>
 	);
 };
+
+export default $1;
 endsnippet
 
 snippet rcaf "React Pure Lambda Component"

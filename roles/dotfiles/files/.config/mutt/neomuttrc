@@ -4,15 +4,16 @@
 # source ~/.config/mutt/account.com.gmail.max.wihlborg
 
 # Theme
-source ~/.config/mutt/themes/colors256-dark
+source ~/.config/mutt/themes/vombatidae
 
 # Sidebar
-# set sidebar_visible
+set mail_check_stats = yes
+set sidebar_visible = yes
+set sidebar_width = 20
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
-set mail_check_stats
-
-# Notifications (does not work in tmux session/alactritty)
-# set new_mail_command="reattach-to-user-namespace terminal-notifier -title '%v' -subtitle 'New Mail in %f' -message '%n new messages, %u unread.' -activate 'com.apple.Terminal' -iconPath ~/.config/mutt/mutt.ico -sound 'Pop'"
+set sidebar_new_mail_only = no
+set sidebar_sort_method = 'unsorted'
+set sidebar_format = "%B%* %?N?(%N)? %S"
 
 set mailcap_path=~/.config/mutt/mailcap
 set header_cache=~/.config/mutt/cache
@@ -20,15 +21,29 @@ set header_cache=~/.config/mutt/cache
 # Sorting
 set sort=threads
 set sort_re
-set sort_aux=reverse-date-sent
-set status_on_top
+set sort_aux = 'reverse-date-sent'
+# set status_on_top = yes
 
 set query_command="lbdbq '%s'"
 
-# Vim bindings
-#bind pager "G" bottom
-#bind index "G" bottom
-#bind browser "G" bottom
+set folder = ~/.mail/work
 
 # Macros
 macro pager ,b <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+
+set nm_default_uri = "notmuch:///Users/maxwihlborg/.mail"
+set nm_unread_tag = unread
+set vfolder_format = "%6n(%6N) %f"
+
+set virtual_spoolfile = yes
+virtual-mailboxes "Work" "notmuch://?query=tag:work AND tag:inbox AND NOT tag:archive"
+virtual-mailboxes " Archive" "notmuch://?query=tag:work AND tag:archive"
+virtual-mailboxes " Code" "notmuch://?query=tag:work AND tag:code"
+virtual-mailboxes " Documentation" "notmuch://?query=tag:work AND tag:docs"
+virtual-mailboxes " Jira" "notmuch://?query=tag:work AND tag:jira"
+virtual-mailboxes " Sentry" "notmuch://?query=tag:work AND tag:sentry"
+virtual-mailboxes " Trash" "notmuch://?query=tag:work AND tag:deleted"
+
+macro index,pager A "<modify-labels>!archive -unread !inbox\\n"
+
+bind index,pager X change-vfolder

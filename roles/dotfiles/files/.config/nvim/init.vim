@@ -29,6 +29,8 @@ call dein#add('scrooloose/nerdtree', { 'merged': 0 })
 call dein#add('SirVer/ultisnips')
 
 call dein#add('mileszs/ack.vim')
+call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
+call dein#add('junegunn/fzf.vim')
 
 call dein#add('Shougo/deoplete.nvim')
 call dein#add('zchee/deoplete-go', {'build': 'make'})
@@ -104,7 +106,6 @@ imap <silent> <C-n> <esc>:NERDTreeToggle<cr>
 map <silent> <C-n> <esc>:NERDTreeToggle<cr>
 nno <silent> <leader>n :NERDTreeFind<cr>
 nno <silent> <leader>o :TagbarToggle<cr>
-nno <silent> <leader>u :CtrlPClearCache<cr>
 nno <silent> <leader>j :TernDef<cr>
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
@@ -162,8 +163,10 @@ let g:elm_setup_keybindings = 0
 let g:elm_format_autosave = 1
 
 " fuzzy finding
-let g:ctrlp_custom_ignore='\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_map='<c-u>'
+" let g:ctrlp_custom_ignore='\v[\/]\.(git|hg|svn)$'
+" let g:ctrlp_map='<c-u>'
+nno <silent> <c-u> :Files<cr>
+nno <silent> <leader>u :Buffers<cr>
 
 " autocompletion
 let g:deoplete#enable_at_startup = 1
