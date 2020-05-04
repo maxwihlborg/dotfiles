@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>org.sil.ukelele.keyboardlayout.svorakr1copy</string>
+	<key>CFBundleName</key>
+	<string>Svorak_R1</string>
+	<key>CFBundleVersion</key>
+	<string></string>
+	<key>KLInfo_Svorak - R1</key>
+	<dict>
+		<key>TICapsLockLanguageSwitchCapable</key>
+		<false/>
+		<key>TISInputSourceID</key>
+		<string>org.sil.ukelele.keyboardlayout.svorakr1copy.svorak-r1</string>
+		<key>TISIntendedLanguage</key>
+		<string>sv</string>
+	</dict>
+</dict>
+</plist>
