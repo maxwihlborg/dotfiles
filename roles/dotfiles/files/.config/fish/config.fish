@@ -12,9 +12,6 @@ set -x GOPATH $HOME/gocode
 set -x ANDROID_HOME $HOME/Library/Android/sdk
 set -x XDG_CONFIG_HOME $HOME/.config
 
-set -g fish_user_paths "/usr/local/opt/node@10/bin" $fish_user_paths
-set -gx nvm_prefix /usr/local/Cellar/nvm/0.34.0
-
 # Docker
 # set -gx DOCKER_TLS_VERIFY "1";
 # set -gx DOCKER_HOST "tcp://192.168.99.100:2376";
