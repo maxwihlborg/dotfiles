@@ -1,4 +1,74 @@
-snippet rc "React Class Component"
+priority -50
+
+# =====================================
+# Import/Export Snippets
+# =====================================
+snippet rce "Import/Export"
+import $1 from "./$1";
+
+export default $1;
+endsnippet
+
+snippet rci "Import"
+import $1 from "./$1";
+endsnippet
+
+snippet rcm "Import module"
+import $1 from "$1";
+endsnippet
+
+snippet rca "Export all"
+export * from "./$1";
+endsnippet
+
+snippet rcaa "Export all as"
+export * as $1 from "./$1";
+endsnippet
+
+snippet rcd "Export default"
+export { default as $1 } from "./$1";
+endsnippet
+
+snippet dc "Export class"
+export default class $1  {
+	constructor() {
+		${2:// code}
+	}
+}
+endsnippet
+
+# =====================================
+# React Snippets
+# =====================================
+snippet rcf "React functional component"
+import React from "react";
+
+const $1 = () => {
+	return (
+		<div>$1</div>
+	);
+};
+
+export default $1;
+endsnippet
+
+snippet rce "React HOC component"
+import _ from "lodash";
+import React from "react";
+import { compose } from "recompose";
+
+const enhance = compose();
+
+const $1 = () => {
+	return (
+		${2:<div>Hello world</div>}
+	);
+};
+
+export default enhance($1);
+endsnippet
+
+snippet rc "React class component"
 import React from "react";
 
 class $1 extends React.Component {
@@ -12,75 +82,3 @@ class $1 extends React.Component {
 export default $1;
 endsnippet
 
-snippet rrc "React Redux Component"
-import React from "react";
-import { connect } from "react-redux";
-
-const mapStateToPros = (state) => {};
-
-class $1 extends React.Component {
-	render() {
-		return (
-			${2:<div>Hello world</div>}
-		);
-	}
-};
-
-export default connect(mapStateToPros)($1);
-endsnippet
-
-snippet rec "React Enhanced Component"
-import _ from "lodash";
-import React from "react";
-import { compose } from "recompose";
-
-const enhance = compose();
-
-class $1 extends React.Component {
-	render() {
-		return (
-			${2:<div>Hello world</div>}
-		);
-	}
-};
-
-export default enhance($1);
-endsnippet
-
-snippet rcf "React Pure Function Component"
-import React from "react";
-
-const $1 = (props) => {
-	return (
-		<div>$1</div>
-	);
-};
-
-export default $1;
-endsnippet
-
-snippet rcaf "React Pure Lambda Component"
-import React from "react";
-
-const $1 = props => {
-	return (
-		<div>$1</div>
-	);
-};
-
-export default $1;
-endsnippet
-
-snippet rce "Import/Export"
-import $1 from "./$1";
-
-export default $1;
-endsnippet
-
-snippet rci "Import"
-import $1 from "./$1";
-endsnippet
-
-snippet rcd "Export default"
-export { default as $1 } from "./$1";
-endsnippet

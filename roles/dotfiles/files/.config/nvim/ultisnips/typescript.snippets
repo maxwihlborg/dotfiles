@@ -1,0 +1,52 @@
+extends javascript
+
+# =====================================
+# React Snippets
+# =====================================
+snippet rcf "React functional component"
+import React from "react";
+
+export interface $1Props {}
+
+const $1:React.FC<$1Props> = () => {
+	return (
+		<div>$1</div>
+	);
+};
+
+export default $1;
+endsnippet
+
+snippet rce "React HOC Component"
+import React from "react";
+import { compose } from "recompose";
+
+export interface $1Props {}
+
+const enhance = compose();
+
+const $1:React.FC<$1Props> = () => {
+	return (
+		${2:<div>Hello world</div>}
+	);
+};
+
+export default enhance($1);
+endsnippet
+
+snippet rc "React class component"
+import React from "react";
+
+export interface $1Props {}
+
+class $1 extends React.Component<$1Props> {
+	render() {
+		return (
+			${2:<div>Hello world</div>}
+		);
+	}
+}
+
+export default $1;
+endsnippet
+
