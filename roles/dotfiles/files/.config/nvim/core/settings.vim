@@ -3,7 +3,6 @@ filetype plugin indent on
 
 set hidden
 set updatetime=300
-set timeoutlen=100
 set shortmess+=c
 set signcolumn=yes
 set guicursor=
