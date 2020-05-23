@@ -3,7 +3,6 @@
 " Core settings
 source $HOME/.config/nvim/core/plugins.vim
 source $HOME/.config/nvim/core/settings.vim
-source $HOME/.config/nvim/core/functions.vim
 source $HOME/.config/nvim/core/mappings.vim
 
 " Plugin Settings
@@ -15,6 +14,7 @@ source $HOME/.config/nvim/plugins/fugative.vim
 source $HOME/.config/nvim/plugins/fzf.vim
 source $HOME/.config/nvim/plugins/neo-format.vim
 source $HOME/.config/nvim/plugins/nerdtree.vim
+source $HOME/.config/nvim/plugins/supertab.vim
 source $HOME/.config/nvim/plugins/ultisnips.vim
 
 " Language Settings
