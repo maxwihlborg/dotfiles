@@ -1,6 +1,9 @@
 syntax on
 filetype plugin indent on
 
+set wildoptions=pum
+set pumblend=20
+
 set hidden
 set updatetime=300
 set shortmess+=c
