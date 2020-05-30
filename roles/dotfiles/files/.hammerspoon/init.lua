@@ -1,5 +1,6 @@
 local mod = {"ctrl", "cmd", "alt"}
 local mod2 = {"ctrl", "alt"}
+local mod3 = {"cmd", "shift"}
 
 function send_win(x, y, w, h)
     return function()
@@ -30,6 +31,16 @@ function send_to_mon(ns)
         w = math.floor((cf.w / sf.w) * nf.w)
     })
 end
+
+-- Higher order launchByBundle
+function launch_by_bundle_id(id)
+  return function()
+    hs.application.launchOrFocusByBundleID(id)
+  end
+end
+
+hs.hotkey.bind(mod3, "1", launch_by_bundle_id("io.alacritty"))
+hs.hotkey.bind(mod3, "2", launch_by_bundle_id("com.google.Chrome"))
 
 -- Split Screen Actions
 local send_win_left  = send_win(  0,   0, 0.5, 1)
