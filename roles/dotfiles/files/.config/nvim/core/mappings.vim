@@ -13,6 +13,9 @@ nno <silent> <leader>Q :q!<cr>
 " Temp fix (alacritty mac os)
 nno ; <C-v>
 
+" Terminal
+tno <Esc> <C-\><C-n>
+
 " Movement
 map j gj
 map k gk

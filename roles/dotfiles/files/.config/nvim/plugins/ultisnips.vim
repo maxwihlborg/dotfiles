@@ -1,1 +1,1 @@
-let g:UltiSnipsSnippetDirectories = ['ultisnips']
+let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/ultisnips']

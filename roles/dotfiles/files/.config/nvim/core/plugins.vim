@@ -13,6 +13,9 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#begin('~/.config/nvim/dein')
 
   call dein#add('Shougo/dein.vim')
+  call dein#add('Shougo/defx.nvim')
+  call dein#add('kristijanhusak/defx-git')
+  call dein#add('kristijanhusak/defx-icons')
 
   call dein#add('othree/yajs.vim', { 'merged': 0 })
   call dein#add('HerringtonDarkholme/yats.vim')
@@ -21,7 +24,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('scrooloose/nerdcommenter')
   call dein#add('vim-airline/vim-airline')
   call dein#add('ryanoasis/vim-devicons')
-  call dein#add('scrooloose/nerdtree', { 'merged': 0 })
+  "call dein#add('scrooloose/nerdtree', { 'merged': 0 })
   call dein#add('SirVer/ultisnips')
 
   call dein#add('neoclide/coc.nvim', { 'build': 'yarn install --frozen-lockfile' })
@@ -37,7 +40,10 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('airblade/vim-gitgutter')
   call dein#add('tpope/vim-surround')
   call dein#add('tpope/vim-fugitive')
+  call dein#add('sodapopcan/vim-twiggy')
+  call dein#add('junegunn/gv.vim')
   call dein#add('tpope/vim-vinegar')
+  call dein#add('tpope/vim-dadbod')
   call dein#add('mattn/emmet-vim')
   call dein#add('mxw/vim-jsx')
 
@@ -52,8 +58,6 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('dag/vim-fish')
 
   call dein#add('editorconfig/editorconfig-vim')
-
-  call dein#add('tyok/nerdtree-ack', { 'depends': 'nerdtree', 'merged': 0 })
 
   call dein#end()
   call dein#save_state()

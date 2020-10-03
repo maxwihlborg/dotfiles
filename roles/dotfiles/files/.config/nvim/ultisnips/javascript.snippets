@@ -29,8 +29,16 @@ snippet rcd "Export default"
 export { default as $1 } from "./$1";
 endsnippet
 
-snippet dc "Export class"
+snippet dc "Export default class"
 export default class $1  {
+	constructor() {
+		${2:// code}
+	}
+}
+endsnippet
+
+snippet ec "Export class"
+export class $1 {
 	constructor() {
 		${2:// code}
 	}
