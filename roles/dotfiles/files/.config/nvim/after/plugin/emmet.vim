@@ -1,9 +1,8 @@
-" Mappings
-nmap f <Plug>(easymotion-overwin-f2)
-imap <C-e> <Plug>(emmet-expand-abbr)
-
 let g:user_emmet_install_global = 1
 let g:user_emmet_settings = {
+\  'typescript.tsx' : {
+\      'extends' : 'jsx',
+\  },
 \  'typescript.jsx' : {
 \      'extends' : 'jsx',
 \  },
