@@ -1,0 +1,45 @@
+partial alphanumeric_keys
+xkb_symbols "svorakr1" {
+    include "se(basic)"
+
+    name[Group1]="SvorakR1";
+
+    key <AD01> { [ aring,          Aring,           asciicircum    ] };
+    key <AD02> { [ adiaeresis,     Adiaeresis,      asciitilde     ] };
+    key <AD03> { [ odiaeresis,     Odiaeresis,      braceleft      ] };
+    key <AD04> { [ p,              P,               ampersand      ] };
+    key <AD05> { [ y,              Y,               braceright     ] };
+    key <AD06> { [ f,              F,               bracketleft    ] };
+    key <AD07> { [ g,              G,               question       ] };
+    key <AD08> { [ c,              C,               bracketright   ] };
+    key <AD09> { [ r,              R,               equal          ] };
+    key <AD10> { [ l,              L,               grave          ] };
+    key <AD11> { [ comma,          semicolon        ] };
+    key <AD12> { [ dead_diaeresis, dead_circumflex, dead_tilde,    asciicircum ] };
+
+    key <AC01> { [ a,              A,               backslash      ] };
+    key <AC02> { [ o,              O,               quotedbl       ] };
+    key <AC03> { [ e,              E,               at             ] };
+    key <AC04> { [ u,              U,               slash          ] };
+    key <AC05> { [ i,              I,               dollar         ] };
+    key <AC06> { [ d,              D,               parenleft      ] };
+    key <AC07> { [ h,              H,               minus          ] };
+    key <AC08> { [ t,              T,               parenright     ] };
+    key <AC09> { [ n,              N,               apostrophe     ] };
+    key <AC10> { [ s,              S,               numbersign     ] };
+    key <AC11> { [ minus,          underscore,      dead_belowdot, dead_abovedot ] };
+
+    key <AB01> { [ period,         colon,           percent        ] };
+    key <AB02> { [ q,              Q,               less           ] };
+    key <AB03> { [ j,              J,               bar            ] };
+    key <AB04> { [ k,              K,               exclam         ] };
+    key <AB05> { [ x,              X,               greater        ] };
+    key <AB06> { [ b,              B,               underscore     ] };
+    key <AB07> { [ m,              M,               plus           ] };
+    key <AB08> { [ w,              W,               comma          ] };
+    key <AB09> { [ v,              V,               semicolon      ] };
+    key <AB10> { [ z,              Z,               asterisk       ] };
+
+    include "level3(alt_switch)"
+    include "capslock(escape)"
+};
