@@ -7,7 +7,7 @@ set red (set_color red)
 set gray (set_color -o black)
 
 # Paths
-set PATH /usr/local/sbin $HOME/.cargo/bin $HOME/.composer/vendor/bin $PATH
+set PATH ~/bin /usr/local/sbin $HOME/.cargo/bin $HOME/.composer/vendor/bin (yarn global bin) $PATH
 set -x GOPATH $HOME/gocode
 set -x ANDROID_HOME $HOME/Library/Android/sdk
 set -x XDG_CONFIG_HOME $HOME/.config
@@ -25,27 +25,6 @@ begin
     source $AUTOJUMP_PATH
   end
 end
-
-# Jenv
-set -gx PATH '/Users/max/.jenv/shims' $PATH
-set -gx JENV_SHELL fish
-set -gx JENV_LOADED 1
-set -e JAVA_HOME
-source '/usr/local/Cellar/jenv/0.5.4/libexec/libexec/../completions/jenv.fish'
-jenv rehash 2>/dev/null
-jenv refresh-plugins
-function jenv
-  set command $argv[1]
-  set -e argv[1]
-
-  switch "$command"
-  case enable-plugin rehash shell shell-options
-    source (jenv "sh-$command" $argv|psub)
-  case '*'
-    command jenv "$command" $argv
-  end
-end
-
 
 # Editor config
 set -x EDITOR nvim
@@ -68,6 +47,10 @@ set __fish_git_prompt_color_cleanstate green
 set __fish_git_prompt_color_branch yellow
 
 # Functions
+function j
+  z $argv
+end
+
 function la
   ls -a $argv
 end
@@ -113,11 +96,15 @@ function mux
 end
 
 function ne
-  nvim $argv
+  nvim.appimage  $argv
 end
 
 function vm
   vifm $argv
+end
+
+function banner
+  figlet -f ~/.local/share/fonts/ansi.flf $argv | lolcat
 end
 
 function vlc
