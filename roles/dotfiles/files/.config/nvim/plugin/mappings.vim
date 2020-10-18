@@ -23,7 +23,7 @@ vno s :
 vno S :
 
 " Hide search Highlight
-no <silent> <esc> :noh<cr><esc>
+nno <silent> <esc> :noh<cr><esc>
 
 " Keep Selection
 vno <silent> > ><cr>gv
@@ -44,6 +44,7 @@ nno <silent> L :tabn<cr>
 nno <silent> <leader>b :Gblame<cr>
 nno <silent> <leader>s :Gstatus<cr>
 nno <silent> <leader>d :Gdiff<cr>
+nno <leader>c :lua require("tools").gpick()<cr>
 
 imap <silent> <C-g> <esc>:Twiggy<cr>
 map <silent> <C-g> <esc>:Twiggy<cr>

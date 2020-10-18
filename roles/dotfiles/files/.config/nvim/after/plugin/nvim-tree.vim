@@ -5,19 +5,19 @@ nno <silent> <leader>n :LuaTreeFindFile<cr>
 
 " let g:lua_tree_git_hl=1
 let g:lua_tree_icons={
-      \ 'default': '',
-      \ 'symlink': '﬒',
+      \ 'default': '',
+      \ 'symlink': '',
       \ 'git': {
       \   'unstaged': "ﰣ",
       \   'staged': "",
       \   'unmerged': "",
       \   'renamed': "",
       \   'untracked': "",
-      \   'deleted': ""
+      \   'deleted': ""
       \ },
       \ 'folder': {
-      \   'default': "",
-      \   'open': "ﱮ"
+      \   'default': "",
+      \   'open': ""
       \   }
       \ }
 

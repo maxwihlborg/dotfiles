@@ -16,13 +16,13 @@ vim.api.nvim_command(
 --[[
     +-------------------------------------+
     | Prompt                              |
-    +-------------------------------------+
+    +--------------------+----------------+
     | Results            | Preview        |
     |                    |                |
     |                    |                |
-    +-------------------------------------+
+    +--------------------+----------------+
 --]]
-layout.center2 = function(self, columns, lines)
+layout.custom = function(self, columns, lines)
     local initial_options = self:_get_initial_window_options()
     local preview = initial_options.preview
     local results = initial_options.results
@@ -38,27 +38,32 @@ layout.center2 = function(self, columns, lines)
     local has_preview = self.previewer
 
     -- border size
-    local bs = 1
+    local bs = self.window.border and 1 or 0
 
     prompt.height = 1
     results.height = max_results
     preview.height = max_results
-    preview.width = 80
+    preview.width = width - math.floor(width * self.window.results_width)
 
     prompt.width = max_width
-    results.width = max_width - (has_preview and preview.width or 0)
+    results.width = max_width - (has_preview and (preview.width + bs) or 0)
 
-    prompt.line = 2
+    prompt.line = (lines / 2) - ((max_results + (bs * 2)) / 2)
     results.line = prompt.line + 1 + (bs)
     preview.line = results.line
 
     if not self.previewer or columns < self.preview_cutoff then
+        if self.window.border and self.window.borderchars then
+            self.window.borderchars.results[6] = self.window.borderchars.preview[6]
+            self.window.borderchars.results[7] = self.window.borderchars.preview[7]
+        end
+
         preview.height = 0
     end
 
     results.col = math.ceil((columns / 2) - (width / 2) - bs)
     prompt.col = results.col
-    preview.col = results.col + results.width
+    preview.col = results.col + results.width + bs
 
     return {
         preview = has_preview and preview,
@@ -68,18 +73,19 @@ layout.center2 = function(self, columns, lines)
 end
 
 config.theme = function(opts)
-    opts = opts or {}
     return vim.tbl_deep_extend(
         "force",
         {
             sorting_strategy = "ascending",
-            layout_strategy = "center2",
+            layout_strategy = "custom",
             results_title = false,
             preview_title = false,
-            prompt_title = false,
             preview = false,
-            width = 140,
+            winblend = 30,
+            width = 130,
             results_height = 15,
+            results_width = 0.37,
+            border = false,
             borderchars = {
                 {"─", "│", "─", "│", "╭", "╮", "╯", "╰"},
                 prompt = {"─", "│", " ", "│", "╭", "╮", "│", "│"},
@@ -87,7 +93,7 @@ config.theme = function(opts)
                 preview = {"─", "│", "─", "│", "╭", "┤", "╯", "╰"}
             }
         },
-        opts
+        opts or {}
     )
 end
 

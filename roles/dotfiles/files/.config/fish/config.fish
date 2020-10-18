@@ -27,7 +27,7 @@ begin
 end
 
 # Editor config
-set -x EDITOR nvim
+set -x EDITOR nvim.appimage
 set -x VISUAL $EDITOR
 
 # Environment variables
@@ -52,15 +52,19 @@ function j
 end
 
 function la
-  ls -a $argv
+  exa -a $argv
 end
 
 function ll
-  ls -l $argv
+  exa -l $argv
 end
 
 function lla
-  ls -la $argv
+  exa -la $argv
+end
+
+function lt
+  exa -T -I node_modules $argv
 end
 
 function md
@@ -93,6 +97,10 @@ end
 
 function mux
   env TERM=xterm-256color tmuxinator $argv
+end
+
+function gg
+  lazygit  $argv
 end
 
 function ne

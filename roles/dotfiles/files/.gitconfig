@@ -1,6 +1,6 @@
 [core]
   excludesfile = /Users/maxwih/.gitignore_global
-  editor = nvim
+  editor = nvim.appimage
 [user]
   name = Max Wihlborg
   email = max.wihlborg@barnebys.com

@@ -3,5 +3,3 @@
   roles:
     - { role: alacritty, tags: alacritty }
     - { role: dotfiles, tags: dotfiles }
-    #- { role: neovim, tags: vim }
-    #- { role: neomutt, tags: mutt }

@@ -13,12 +13,6 @@ require("packer").startup(
             }
         }
         use {
-            "akinsho/nvim-bufferline.lua",
-            requires = {
-                {"kyazdani42/nvim-web-devicons"}
-            }
-        }
-        use {
             "kyazdani42/nvim-tree.lua",
             requires = {
                 {"kyazdani42/nvim-web-devicons"}
@@ -29,13 +23,6 @@ require("packer").startup(
             requires = {
                 {"nvim-lua/plenary.nvim"},
                 {"nvim-lua/popup.nvim"}
-            }
-        }
-        use {
-            "tjdevries/express_line.nvim",
-            requires = {
-                {"kyazdani42/nvim-web-devicons"},
-                {"nvim-lua/plenary.nvim"}
             }
         }
 
@@ -49,17 +36,35 @@ require("packer").startup(
         use {"junegunn/vim-easy-align"}
         use {"tpope/vim-surround"}
         use {"ervandew/supertab"}
-        use {"tpope/vim-vinegar"} -- Broken
+        use {"justinmk/vim-dirvish"}
         use {"sbdchd/neoformat"}
         use {"SirVer/ultisnips"}
         use {"mattn/emmet-vim"}
 
         -- Esthetics
-        -- use {"vim-airline/vim-airline"}
+        use {"tjdevries/colorbuddy.vim"}
+        use {"ishan9299/modus-theme-vim"}
+        use {"norcalli/nvim-colorizer.lua"}
+        use {"vim-airline/vim-airline"}
         use {"mhartington/oceanic-next"}
         use {"airblade/vim-gitgutter"}
-        use {"mhinz/vim-startify"}
 
+        --[[
+        use {"mhinz/vim-startify"}
+        use {
+            "akinsho/nvim-bufferline.lua",
+            requires = {
+                {"kyazdani42/nvim-web-devicons"}
+            }
+        }
+        use {
+            "tjdevries/express_line.nvim",
+            requires = {
+                {"kyazdani42/nvim-web-devicons"},
+                {"nvim-lua/plenary.nvim"}
+            }
+        }
+        --]]
         -- Syntax
         use {"editorconfig/editorconfig-vim"}
         use {"whatyouhide/vim-tmux-syntax"}

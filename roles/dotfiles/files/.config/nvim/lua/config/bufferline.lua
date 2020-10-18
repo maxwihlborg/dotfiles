@@ -3,7 +3,7 @@ local colors = require("bufferline.colors")
 require("bufferline").setup(
     {
         options = {
-            view = "multiwindow",
+            view = "default",
             numbers = "none",
             number_style = "",
             mappings = false,
@@ -16,7 +16,7 @@ require("bufferline").setup(
             tab_size = 16,
             show_buffer_close_icons = false,
             separator_style = "thin",
-            enforce_regular_tabs = false,
+            enforce_regular_tabs = true,
             always_show_bufferline = true
         },
         highlights = {
