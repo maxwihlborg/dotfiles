@@ -50,10 +50,14 @@ nno <leader>c :lua require("tools").gpick()<cr>
 imap <silent> <C-g> <esc>:Twiggy<cr>
 map <silent> <C-g> <esc>:Twiggy<cr>
 
+" DataBase
+nno <silent> <leader>d :DBUI<cr>
+let g:db_ui_use_nerd_fonts = 1
+
 " Telescope
 nno <silent> <c-u>  :lua require("telescope.builtin").find_files(require("config.telescope").theme())<cr>
 nno <silent> <leader>u :lua require("telescope.builtin").buffers(require("config.telescope").theme())<cr>
-nno <silent> <c-r> :lua require("telescope.builtin").command_history(require("config.telescope").theme())<cr>
+nno <silent> <c-c> :lua require("telescope.builtin").command_history(require("config.telescope").theme())<cr>
 
 " LuaTree
 imap <silent> <C-n> <esc>:LuaTreeToggle<cr>

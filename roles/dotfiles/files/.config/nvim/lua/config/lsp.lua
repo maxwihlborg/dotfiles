@@ -2,17 +2,27 @@ local on_attach = function(client, bufnr)
     require("completion").on_attach(client, bufnr)
     require("diagnostic").on_attach(client, bufnr)
 
-    local opts = {noremap = true, silent = true}
-    local buf_set_map = vim.api.nvim_buf_set_keymap
+    local function bufnno(lhs, fn)
+        vim.api.nvim_buf_set_keymap(
+            bufnr,
+            "n",
+            lhs,
+            string.format("<cmd>lua %s<cr>", fn),
+            {
+                noremap = true,
+                silent = true
+            }
+        )
+    end
 
-    buf_set_map(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
-    buf_set_map(bufnr, "n", "gy", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-    buf_set_map(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-    buf_set_map(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-    buf_set_map(bufnr, "n", "<leader>j", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-    buf_set_map(bufnr, "n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
-    buf_set_map(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-    buf_set_map(bufnr, "n", "<leader>e", "<cmd>lua vim.lsp.util.show_line_diagnostics()<cr>", opts)
+    bufnno("gd", "vim.lsp.buf.definition()")
+    bufnno("gy", "vim.lsp.buf.code_action()")
+    bufnno("gr", "vim.lsp.buf.references()")
+    bufnno("gi", "vim.lsp.buf.implementation()")
+
+    bufnno("<leader>rn", "vim.lsp.buf.rename()")
+    bufnno("<leader>j", "vim.lsp.buf.hover()")
+    bufnno("<leader>e", "vim.lsp.util.show_line_diagnostics()")
 end
 
 require("nvim_lsp").tsserver.setup({on_attach = on_attach})

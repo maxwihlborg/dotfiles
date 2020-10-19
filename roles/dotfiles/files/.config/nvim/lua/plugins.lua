@@ -34,7 +34,15 @@ require("packer").startup(
         use {"tpope/vim-fugitive"}
         use {"junegunn/gv.vim"}
 
-        -- Easier Editingh
+        -- DataBases
+        use {
+            "kristijanhusak/vim-dadbod-ui",
+            requires = {
+                {"tpope/vim-dadbod"}
+            }
+        }
+
+        -- Easier Editing
         use {"christoomey/vim-tmux-navigator"}
         use {"scrooloose/nerdcommenter"}
         use {"junegunn/vim-easy-align"}
