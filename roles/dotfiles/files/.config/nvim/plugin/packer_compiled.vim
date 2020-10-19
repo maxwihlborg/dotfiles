@@ -6,6 +6,13 @@ endif
 
 lua << END
 local plugins = {
+  ["lazygit.nvim"] = {
+    commands = { "LazyGit", "LazyGitConfig", "LazyGitFiles" },
+    loaded = false,
+    only_sequence = false,
+    only_setup = false,
+    path = "/home/max/.local/share/nvim/site/pack/packer/opt/lazygit.nvim"
+  },
   ["packer.nvim"] = {
     loaded = false,
     only_sequence = false,
@@ -147,6 +154,9 @@ endfunction
 
 
 " Command lazy-loads
+command! -nargs=* -range -bang -complete=file LazyGitConfig call s:load(['lazygit.nvim'], { "cmd": "LazyGitConfig", "l1": <line1>, "l2": <line2>, "bang": <q-bang>, "args": <q-args> })
+command! -nargs=* -range -bang -complete=file LazyGitFiles call s:load(['lazygit.nvim'], { "cmd": "LazyGitFiles", "l1": <line1>, "l2": <line2>, "bang": <q-bang>, "args": <q-args> })
+command! -nargs=* -range -bang -complete=file LazyGit call s:load(['lazygit.nvim'], { "cmd": "LazyGit", "l1": <line1>, "l2": <line2>, "bang": <q-bang>, "args": <q-args> })
 
 " Keymap lazy-loads
 

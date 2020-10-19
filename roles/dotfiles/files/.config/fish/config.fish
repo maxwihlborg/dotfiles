@@ -7,7 +7,7 @@ set red (set_color red)
 set gray (set_color -o black)
 
 # Paths
-set PATH ~/bin /usr/local/sbin $HOME/.cargo/bin $HOME/.composer/vendor/bin (yarn global bin) $PATH
+set PATH ~/bin /usr/local/sbin $GOPATH/bin $HOME/.cargo/bin $HOME/.composer/vendor/bin (yarn global bin) $PATH
 set -x GOPATH $HOME/gocode
 set -x ANDROID_HOME $HOME/Library/Android/sdk
 set -x XDG_CONFIG_HOME $HOME/.config

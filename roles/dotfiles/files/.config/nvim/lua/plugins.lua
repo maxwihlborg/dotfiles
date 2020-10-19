@@ -27,6 +27,10 @@ require("packer").startup(
         }
 
         -- Git
+        use {
+            "kdheepak/lazygit.nvim",
+            cmd = {"LazyGit", "LazyGitConfig", "LazyGitFiles"}
+        }
         use {"tpope/vim-fugitive"}
         use {"junegunn/gv.vim"}
 
@@ -79,16 +83,6 @@ require("packer").startup(
         Replaced by telescope?
         use {"junegunn/fzf", run = "./install"}
         use {"junegunn/fzf.vim"}
-
-        # Currently broken?
-        use {
-            "sodapopcan/vim-twiggy",
-            requires = {
-                {"tpope/vim-fugitive"},
-                {"junegunn/gv.vim"}
-            },
-            cmd = "Twiggy"
-        }
 
         # Syntax part replaced by tree-sitter?
         use {"pangloss/vim-javascript"}

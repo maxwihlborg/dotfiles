@@ -44,6 +44,7 @@ nno <silent> L :tabn<cr>
 nno <silent> <leader>b :Gblame<cr>
 nno <silent> <leader>s :Gstatus<cr>
 nno <silent> <leader>d :Gdiff<cr>
+nno <silent> <leader>g :LazyGit<cr>
 nno <leader>c :lua require("tools").gpick()<cr>
 
 imap <silent> <C-g> <esc>:Twiggy<cr>
