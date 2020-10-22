@@ -1,8 +1,14 @@
 local layout = require("telescope.pickers.layout_strategies")
 local resolve = require("telescope.config.resolve")
+local make_entry = require("telescope.make_entry")
+local previewers = require("telescope.previewers")
+local sorters = require("telescope.sorters")
+local pickers = require("telescope.pickers")
+local finders = require("telescope.finders")
+local builtin = require("telescope.builtin")
 local config = require("telescope.config")
 
-local config = {}
+local M = {}
 
 vim.api.nvim_command(
     [[ command! -nargs=1 Rg call luaeval('require("telescope.builtin").grep_string(
@@ -72,7 +78,7 @@ layout.custom = function(self, columns, lines)
     }
 end
 
-config.theme = function(opts)
+M.theme = function(opts)
     return vim.tbl_deep_extend(
         "force",
         {
@@ -82,7 +88,7 @@ config.theme = function(opts)
             preview_title = false,
             preview = false,
             winblend = 30,
-            width = 130,
+            width = 100,
             results_height = 15,
             results_width = 0.37,
             border = false,
@@ -97,4 +103,45 @@ config.theme = function(opts)
     )
 end
 
-return config
+function M.files()
+    pickers.new(
+        M.theme(),
+        {
+            finder = finders.new_oneshot_job({"fd", "-t", "f"}),
+            sorter = sorters.get_fzy_sorter()
+        }
+    ):find()
+end
+
+function M.buffers()
+    local opts = {
+        shorten_path = true
+    }
+    local buffers =
+        vim.tbl_filter(
+        function(b)
+            return (opts.show_all_buffers or vim.api.nvim_buf_is_loaded(b)) and 1 == vim.fn.buflisted(b)
+        end,
+        vim.api.nvim_list_bufs()
+    )
+
+    local max_bufnr = math.max(unpack(buffers))
+    opts.bufnr_width = #tostring(max_bufnr)
+
+    pickers.new(
+        M.theme(),
+        {
+            finder = finders.new_table {
+                results = buffers,
+                entry_maker = make_entry.gen_from_buffer(opts)
+            },
+            sorter = sorters.get_fzy_sorter()
+        }
+    ):find()
+end
+
+function M.command_history()
+    builtin.command_history(M.theme())
+end
+
+return M

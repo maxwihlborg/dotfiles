@@ -1,5 +1,5 @@
-let g:completion_matching_strategy_list = ['exact', 'fuzzy']
-let g:completion_matching_ignore_case = 1
+let g:completion_matching_strategy_list = ['exact','substring', 'fuzzy']
+let g:completion_matching_smart_case = 1
 
 " Diagnostics
 let g:diagnostic_enable_underline = 1

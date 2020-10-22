@@ -2,7 +2,7 @@ vim.cmd [[packadd packer.nvim]]
 
 require("packer").startup(
     function()
-        -- Lua
+        -- Fancy Nvim Plugins
         use {"wbthomason/packer.nvim", opt = true}
         use {"nvim-treesitter/nvim-treesitter"}
         use {
@@ -46,23 +46,22 @@ require("packer").startup(
         use {"christoomey/vim-tmux-navigator"}
         use {"scrooloose/nerdcommenter"}
         use {"junegunn/vim-easy-align"}
+        use {"justinmk/vim-dirvish"}
         use {"tpope/vim-surround"}
         use {"ervandew/supertab"}
-        use {"justinmk/vim-dirvish"}
         use {"sbdchd/neoformat"}
         use {"SirVer/ultisnips"}
         use {"mattn/emmet-vim"}
 
         -- Esthetics
-        use {"tjdevries/colorbuddy.vim"}
-        use {"ishan9299/modus-theme-vim"}
         use {"norcalli/nvim-colorizer.lua"}
-        use {"vim-airline/vim-airline"}
+        use {"tjdevries/colorbuddy.nvim"}
+        use {"ishan9299/modus-theme-vim"}
         use {"mhartington/oceanic-next"}
+        use {"vim-airline/vim-airline"}
         use {"airblade/vim-gitgutter"}
 
         --[[
-        use {"mhinz/vim-startify"}
         use {
             "akinsho/nvim-bufferline.lua",
             requires = {
@@ -77,26 +76,19 @@ require("packer").startup(
             }
         }
         --]]
-        -- Syntax
+        -- Language & Syntax
         use {"editorconfig/editorconfig-vim"}
         use {"whatyouhide/vim-tmux-syntax"}
+        use {"pangloss/vim-javascript"}
         use {"jparise/vim-graphql"}
         use {"tikhomirov/vim-glsl"}
         use {"dag/vim-fish"}
 
         --[[
-        # Replaced by lsp-configs?
-        use {'neoclide/coc.nvim', { 'build': 'yarn install --frozen-lockfile' }}
-
-        Replaced by telescope?
-        use {"junegunn/fzf", run = "./install"}
-        use {"junegunn/fzf.vim"}
-
         # Syntax part replaced by tree-sitter?
-        use {"pangloss/vim-javascript"}
-        use {"reasonml-editor/vim-reason"}
-        use {"othree/yajs.vim"}
         use {"HerringtonDarkholme/yats.vim"}
+        use {"othree/yajs.vim"}
+        use {"reasonml-editor/vim-reason"}
         --]]
     end
 )
