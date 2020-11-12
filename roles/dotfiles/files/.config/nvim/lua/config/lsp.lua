@@ -1,4 +1,5 @@
 local on_attach = function(client, bufnr)
+    --require("lsp-status").on_attach(client, bufnr)
     require("completion").on_attach(client, bufnr)
     require("diagnostic").on_attach(client, bufnr)
 
@@ -25,6 +26,9 @@ local on_attach = function(client, bufnr)
     bufnno("<leader>e", "vim.lsp.util.show_line_diagnostics()")
 end
 
+--require("lsp-status").register_progress()
+
+require("nvim_lsp").sumneko_lua.setup({on_attach = on_attach})
 require("nvim_lsp").tsserver.setup({on_attach = on_attach})
 require("nvim_lsp").cssls.setup({on_attach = on_attach})
 require("nvim_lsp").html.setup({on_attach = on_attach})
@@ -39,6 +43,11 @@ require("nvim_lsp").jsonls.setup(
                         description = "NPM configuration file",
                         fileMatch = {"package.json"},
                         url = "https://json.schemastore.org/package"
+                    },
+                    {
+                        description = "TypeScript compiler configuration file",
+                        fileMatch = {"jsconfig.json", "jsconfig.*.json"},
+                        url = "http://json.schemastore.org/jsconfig"
                     },
                     {
                         description = "TypeScript compiler configuration file",

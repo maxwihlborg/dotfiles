@@ -3,7 +3,7 @@ local M = {}
 local gpick_handle
 local color
 
-local function onread(err, data)
+local function onread(_, data)
     if data then
         color = data:gsub("%s+", "")
     end
@@ -13,6 +13,9 @@ function M.gpick()
     local stdout = vim.loop.new_pipe(false)
     local stderr = vim.loop.new_pipe(false)
     local function yank_color()
+        if not color then
+            return
+        end
         vim.fn.setreg(vim.v.register, color)
         print(string.format("Yanked color: %s", color))
     end

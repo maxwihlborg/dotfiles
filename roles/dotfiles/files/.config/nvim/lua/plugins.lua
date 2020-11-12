@@ -21,6 +21,7 @@ require("packer").startup(
         use {
             "nvim-lua/telescope.nvim",
             requires = {
+                {"kyazdani42/nvim-web-devicons"},
                 {"nvim-lua/plenary.nvim"},
                 {"nvim-lua/popup.nvim"}
             }
@@ -60,19 +61,21 @@ require("packer").startup(
         use {"mhartington/oceanic-next"}
         use {"vim-airline/vim-airline"}
         use {"airblade/vim-gitgutter"}
+        --use {"itchyny/lightline.vim"}
 
         --[[
+        use {
+            "tjdevries/express_line.nvim",
+            requires = {
+                {"nvim-lua/lsp-status.nvim"},
+                {"kyazdani42/nvim-web-devicons"},
+                {"nvim-lua/plenary.nvim"}
+            }
+        }
         use {
             "akinsho/nvim-bufferline.lua",
             requires = {
                 {"kyazdani42/nvim-web-devicons"}
-            }
-        }
-        use {
-            "tjdevries/express_line.nvim",
-            requires = {
-                {"kyazdani42/nvim-web-devicons"},
-                {"nvim-lua/plenary.nvim"}
             }
         }
         --]]
@@ -80,14 +83,14 @@ require("packer").startup(
         use {"editorconfig/editorconfig-vim"}
         use {"whatyouhide/vim-tmux-syntax"}
         use {"pangloss/vim-javascript"}
+        use {"HerringtonDarkholme/yats.vim"}
+        use {"othree/yajs.vim"}
         use {"jparise/vim-graphql"}
         use {"tikhomirov/vim-glsl"}
         use {"dag/vim-fish"}
 
         --[[
         # Syntax part replaced by tree-sitter?
-        use {"HerringtonDarkholme/yats.vim"}
-        use {"othree/yajs.vim"}
         use {"reasonml-editor/vim-reason"}
         --]]
     end

@@ -20,14 +20,14 @@ set -x XDG_CONFIG_HOME $HOME/.config
 
 # AutoJump
 begin
-  set --local AUTOJUMP_PATH /usr/local/share/autojump/autojump.fish
-  if test -e $AUTOJUMP_PATH
-    source $AUTOJUMP_PATH
-  end
+    set --local AUTOJUMP_PATH /usr/local/share/autojump/autojump.fish
+    if test -e $AUTOJUMP_PATH
+        source $AUTOJUMP_PATH
+    end
 end
 
 # Editor config
-set -x EDITOR nvim.appimage
+set -x EDITOR nvim
 set -x VISUAL $EDITOR
 
 # Environment variables
@@ -48,109 +48,112 @@ set __fish_git_prompt_color_branch yellow
 
 # Functions
 function j
-  z $argv
+    z $argv
 end
 
 function la
-  exa -a $argv
+    exa -a $argv
 end
 
 function ll
-  exa -l $argv
+    exa -l $argv
 end
 
 function lla
-  exa -la $argv
+    exa -la $argv
 end
 
 function lt
-  exa -T -I node_modules $argv
+    exa -T -I node_modules $argv
 end
 
 function md
-  mkdir -p $argv
+    mkdir -p $argv
 end
 
 function cdp
-  cd $HOME/projects
+    cd $HOME/projects
 end
 
 function cdd
-  cd $HOME/dockerSites/www
+    cd $HOME/dockerSites/www
 end
 
 function ..
-  cd ../
+    cd ../
 end
 
 function .2
-  cd ../../
+    cd ../../
 end
 
 function .3
-  cd ../../../
+    cd ../../../
 end
 
 function mx
-  env TERM=xterm-256color tmux $argv
+    env TERM=xterm-256color tmux $argv
 end
 
 function mux
-  env TERM=xterm-256color tmuxinator $argv
+    env TERM=xterm-256color tmuxinator $argv
 end
 
 function gg
-  lazygit  $argv
+    lazygit $argv
 end
 
 function ne
-  nvim.appimage  $argv
+    nvim $argv
+end
+
+function nn
+    nvim $argv
 end
 
 function vm
-  vifm $argv
+    vifm $argv
 end
 
 function banner
-  figlet -f ~/.local/share/fonts/ansi.flf $argv | lolcat
+    figlet -f ~/.local/share/fonts/ansi.flf $argv | lolcat
 end
 
 function vlc
-  /Applications/VLC.app/Contents/MacOS/VLC $argv
+    /Applications/VLC.app/Contents/MacOS/VLC $argv
 end
 
 function whatsmyip
-  curl ipinfo.io/ip
+    curl ipinfo.io/ip
 end
 
 # Prompt
 function fish_prompt
-  set -l last_status $status
-  set -l normal (set_color normal)
-  set -l color_cwd (set_color $fish_color_cwd)
-  set -l color_wrapp (set_color blue)
-  set -l suffix
-  set -l prompt_status
-  set -l path_cwd
+    set -l last_status $status
+    set -l normal (set_color normal)
+    set -l color_cwd (set_color $fish_color_cwd)
+    set -l color_wrapp (set_color blue)
+    set -l suffix
+    set -l prompt_status
+    set -l path_cwd
 
-  switch $USER
-  case root toor
-    set suffix "#"
-  case '*'
-    set suffix "\$"
-  end
+    switch $USER
+        case root toor
+            set suffix "#"
+        case '*'
+            set suffix "\$"
+    end
 
-  if test $last_status -ne 0
-    set prompt_status ' ' (set_color $fish_color_status) "[$last_status]" "$normal"
-  end
+    if test $last_status -ne 0
+        set prompt_status ' ' (set_color $fish_color_status) "[$last_status]" "$normal"
+    end
 
-  switch $PWD
-  case $HOME
-    set path_cwd '~'
-  case '*'
-    set path_cwd (basename $PWD)
-  end
+    switch $PWD
+        case $HOME
+            set path_cwd '~'
+        case '*'
+            set path_cwd (basename $PWD)
+    end
 
-  echo -n -s $color_wrapp '[' $color_cwd $path_cwd $normal (__fish_vcs_prompt) $prompt_status $color_wrapp ']' $normal $suffix ' '
+    echo -n -s $color_wrapp '[' $color_cwd $path_cwd $normal (__fish_vcs_prompt) $prompt_status $color_wrapp ']' $normal $suffix ' '
 end
-

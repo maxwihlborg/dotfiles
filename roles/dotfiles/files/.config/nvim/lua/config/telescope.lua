@@ -1,12 +1,10 @@
 local layout = require("telescope.pickers.layout_strategies")
 local resolve = require("telescope.config.resolve")
 local make_entry = require("telescope.make_entry")
-local previewers = require("telescope.previewers")
 local sorters = require("telescope.sorters")
 local pickers = require("telescope.pickers")
 local finders = require("telescope.finders")
 local builtin = require("telescope.builtin")
-local config = require("telescope.config")
 
 local M = {}
 
@@ -87,7 +85,7 @@ M.theme = function(opts)
             results_title = false,
             preview_title = false,
             preview = false,
-            winblend = 30,
+            winblend = 10,
             width = 100,
             results_height = 15,
             results_width = 0.37,
@@ -107,7 +105,12 @@ function M.files()
     pickers.new(
         M.theme(),
         {
-            finder = finders.new_oneshot_job({"fd", "-t", "f"}),
+            finder = finders.new_oneshot_job(
+                {"fd", "-t", "f"},
+                {
+                    entry_maker = make_entry.gen_from_file()
+                }
+            ),
             sorter = sorters.get_fzy_sorter()
         }
     ):find()

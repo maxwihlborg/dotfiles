@@ -1,45 +1,67 @@
-local extensions = require("el.extensions")
-local subscribe = require("el.subscribe")
-local sections = require("el.sections")
-local builtin = require("el.builtin")
-local helper = require("el.helper")
+local lsp = require("el.plugins.lsp_status")
+local ext = require("el.extensions")
+local sub = require("el.subscribe")
+local sec = require("el.sections")
+local bin = require("el.builtin")
 
-local icon = require("nvim-web-devicons")
+local M = {}
+
+M.includes = function(list)
+    local set = {}
+    for _, item in ipairs(list) do
+        set[item] = true
+    end
+    return function(item)
+        return set[item]
+    end
+end
+
+M.ft_only = M.includes({"LuaTree", "dbui", "dirvish"})
+
+M.branch =
+    sub.buf_autocmd(
+    "el_git_branch",
+    "BufEnter",
+    function(w, b)
+        local r = ext.git_branch(w, b)
+        if r then
+            return string.format("  %s ", r)
+        end
+    end
+)
+
+M.icon =
+    sub.buf_autocmd(
+    "el_file_icon",
+    "BufRead",
+    function(w, b)
+        local i = ext.file_icon(w, b)
+        if i then
+            return string.format("%s ", i)
+        end
+    end
+)
+
+M.line_info = "%p%%  %l/%L : %c "
 
 require("el").setup {
-    generator = function(win, buf)
+    generator = function(_, b)
+        if M.ft_only(b.filetype) then
+            return {
+                " %Y "
+            }
+        end
         return {
-            extensions.gen_mode {
+            ext.gen_mode {
                 format_string = " %s "
             },
-            subscribe.buf_autocmd(
-                "el_git_branch",
-                "BufEnter",
-                function(window, buffer)
-                    local branch = extensions.git_branch(window, buffer)
-                    if branch then
-                        return "  " .. branch
-                    end
-                end
-            ),
-            sections.split,
-            subscribe.buf_autocmd(
-                "el_file_icon",
-                "BufRead",
-                function(_, bufnr)
-                    local icon = extensions.file_icon(_, bufnr)
-                    if icon then
-                        return icon .. " "
-                    end
-
-                    return ""
-                end
-            ),
-            builtin.responsive_file(140, 90),
-            sections.collapse_builtin {
-                " ",
-                builtin.modified_flag
-            }
+            M.branch,
+            M.icon,
+            bin.tail,
+            sec.split,
+            M.line_info
         }
     end
 }
+
+return M
