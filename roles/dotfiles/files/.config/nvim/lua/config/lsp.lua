@@ -28,12 +28,12 @@ end
 
 --require("lsp-status").register_progress()
 
-require("nvim_lsp").sumneko_lua.setup({on_attach = on_attach})
-require("nvim_lsp").tsserver.setup({on_attach = on_attach})
-require("nvim_lsp").cssls.setup({on_attach = on_attach})
-require("nvim_lsp").html.setup({on_attach = on_attach})
+require("lspconfig").sumneko_lua.setup({on_attach = on_attach})
+require("lspconfig").tsserver.setup({on_attach = on_attach})
+require("lspconfig").cssls.setup({on_attach = on_attach})
+require("lspconfig").html.setup({on_attach = on_attach})
 
-require("nvim_lsp").jsonls.setup(
+require("lspconfig").jsonls.setup(
     {
         on_attach = on_attach,
         settings = {
