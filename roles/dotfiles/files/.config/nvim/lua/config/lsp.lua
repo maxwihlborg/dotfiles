@@ -28,11 +28,11 @@ end
 
 --require("lsp-status").register_progress()
 
+--[[
 require("lspconfig").sumneko_lua.setup({on_attach = on_attach})
 require("lspconfig").tsserver.setup({on_attach = on_attach})
 require("lspconfig").cssls.setup({on_attach = on_attach})
 require("lspconfig").html.setup({on_attach = on_attach})
-
 require("lspconfig").jsonls.setup(
     {
         on_attach = on_attach,
@@ -84,3 +84,4 @@ require("lspconfig").jsonls.setup(
         }
     }
 )
+]]--

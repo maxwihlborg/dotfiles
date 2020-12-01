@@ -5,6 +5,8 @@ require("packer").startup(
         -- Fancy Nvim Plugins
         use {"wbthomason/packer.nvim", opt = true}
         use {"nvim-treesitter/nvim-treesitter"}
+        use {"neoclide/coc.nvim", run = "yarn install --frozen-lockfile"}
+        --[[
         use {
             "neovim/nvim-lspconfig",
             requires = {
@@ -12,6 +14,7 @@ require("packer").startup(
                 {"nvim-lua/diagnostic-nvim"}
             }
         }
+        --]]
         use {
             "kyazdani42/nvim-tree.lua",
             requires = {

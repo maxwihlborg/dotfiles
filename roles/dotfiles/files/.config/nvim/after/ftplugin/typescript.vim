@@ -1,1 +1,1 @@
-setlocal filetype=typescript.tsx
+"setlocal filetype=typescript.tsx
